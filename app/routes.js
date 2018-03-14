@@ -27,48 +27,43 @@ router.post('/map/find-your-case', function (req, res) {
         req.session.data['charge-detail'] = "Generic charge detail if TFL or TVL not specified as URN"
     }
     
-    req.session.data['defendant-first-name'] = "Sam"
-    req.session.data['defendant-last-name'] = "Smith"
-    req.session.data['defendant-address-line-1'] = "38A Baker Street"
-    req.session.data['defendant-address-city'] = "London"
-    req.session.data['defendant-address-postcode'] = "W1 7SX"
+    req.session.data['company-name'] = "Google"
+    req.session.data['company-address-line-1'] = "38A Baker Street"
+    req.session.data['company-address-city'] = "London"
+    req.session.data['company-address-postcode'] = "W1 7SX"
         
-    res.redirect('/map/your-details')
+    res.redirect('/map/company-details')
     
 })
 
 // ***********
 // You details
-router.post('/map/your-details', function (req, res) {
+router.post('/map/company-details', function (req, res) {
 
-    var new_first_name = req.session.data['new-defendant-first-name']
-    var new_last_name = req.session.data['new-defendant-last-name']
-    var new_address_line_1 = req.session.data['new-defendant-address-line-1']
-    var new_address_line_2 = req.session.data['new-defendant-address-line-2']
-    var new_address_city = req.session.data['new-defendant-address-city']
-    var new_address_county = req.session.data['new-defendant-address-county']
-    var new_address_postcode = req.session.data['new-defendant-address-postcode']
+    var new_name = req.session.data['new-company-name']
+    var new_address_line_1 = req.session.data['new-company-address-line-1']
+    var new_address_line_2 = req.session.data['new-company-address-line-2']
+    var new_address_city = req.session.data['new-company-address-city']
+    var new_address_county = req.session.data['new-company-address-county']
+    var new_address_postcode = req.session.data['new-company-address-postcode']
     
-    if (new_first_name != "") {
-        req.session.data['defendant-first-name'] = new_first_name
-    }
-    if (new_last_name != "") {
-        req.session.data['defendant-last-name'] = new_last_name
+    if (new_name != "") {
+        req.session.data['company-name'] = new_name
     }
     if (new_address_line_1 != "") {
-        req.session.data['defendant-address-line-1'] = new_address_line_1
+        req.session.data['company-address-line-1'] = new_address_line_1
     }
     if (new_address_line_2 != "") {
-        req.session.data['defendant-address-line-2'] = new_address_line_2
+        req.session.data['company-address-line-2'] = new_address_line_2
     }
     if (new_address_city != "") {
-        req.session.data['defendant-address-city'] = new_address_city
+        req.session.data['company-address-city'] = new_address_city
     }
     if (new_address_county != "") {
-        req.session.data['defendant-address-county'] = new_address_county
+        req.session.data['company-address-county'] = new_address_county
     }
     if (new_address_postcode != "") {
-        req.session.data['defendant-address-postcode'] = new_address_postcode
+        req.session.data['company-address-postcode'] = new_address_postcode
     }
     
     res.redirect('/map/your-plea')
@@ -100,7 +95,7 @@ router.post('/map/guilty-plea', function (req, res) {
   if (plea == "Yes"){
     res.redirect('/map/your-court-hearing')
   } else if (plea == "No"){
-    res.redirect('/map/your-finances')
+    res.redirect('/map/company-finances')
   } else {
       res.redirect('/map/guilty-plea')
   }
@@ -114,11 +109,9 @@ router.post('/map/your-court-hearing', function (req, res) {
   var plea = req.session.data['interpreter-group']
 
   if (plea == "Yes"){
-    res.redirect('/map/your-finances')
+    res.redirect('/map/company-finances')
   } else if (plea == "No"){
-    res.redirect('/map/your-finances')
-  } else {
-      res.redirect('/map/your-court-hearing')
+    res.redirect('/map/comapny-finances')
   }
     
 })
@@ -127,108 +120,26 @@ router.post('/map/your-court-hearing', function (req, res) {
 // Not guilty plea
 router.post('/map/not-guilty-plea', function (req, res) {
 
-    res.redirect('/map/your-finances')
+    res.redirect('/map/company-finances')
     
 })
 
 // *************
 // Your finances
-router.post('/map/your-finances', function (req, res) {
+router.post('/map/company-finances', function (req, res) {
 
-    res.redirect('/map/your-income')
+    res.redirect('/map/company-income')
     
 })
 
 // *************
 // Your income
-router.post('/map/your-income', function (req, res) {
+router.post('/map/company-income', function (req, res) {
 
-  var employment_status = req.session.data['employment-status-group']
-  var claiming_benefits = req.session.data['claiming-benefits-group']
-
-  if ((employment_status == "Employed") || (employment_status == "Self-employed")){
-    res.redirect('/map/deductions-from-earnings')
-  } else if (claiming_benefits == "Yes"){
-    res.redirect('/map/your-benefits')
-  } else {
-      res.redirect('/map/your-monthly-outgoings')
-  }
+  res.redirect('/map/check-your-answers')
     
     
 })
-
-// ************************
-// Deductions from earnings
-router.post('/map/deductions-from-earnings', function (req, res) {
-
-  var deductions = req.session.data['deductions-from-earnings-group']
-
-  if (deductions == "Yes"){
-    res.redirect('/map/your-employment')
-  } else if (deductions == "No"){
-    res.redirect('/map/your-monthly-outgoings')
-  } else {
-      res.redirect('/map/deductions-from-earnings')
-  }
-        
-})
-
-// ***************
-// Your employment
-router.post('/map/your-employment', function (req, res) {
-
-    res.redirect('/map/your-monthly-outgoings')
-    
-})
-
-
-// **********************
-// Your monthly outgoings
-router.post('/map/your-monthly-outgoings', function (req, res) {
-
-    var outgoings = req.session.data['outgoings-group']
-
-    if (outgoings == "Yes"){
-        res.redirect('/map/your-monthly-outgoings-detail')
-    } else if (outgoings == "No"){
-        res.redirect('/map/check-your-answers')
-    } else {
-        res.redirect('/map/your-monthly-outgoings')
-    }
-          
-})
-
-// *******************************
-// Your monthly outgoings - detail
-router.post('/map/your-monthly-outgoings-detail', function (req, res) {
-    
-    var total = Number(req.session.data['accommodation']) + Number(req.session.data['council-tax']) + Number(req.session.data['household-bills']) + Number(req.session.data['travel-expense']) + Number(req.session.data['child-maintenance']) + Number(req.session.data['other-expenses-amount'])
-    
-    req.session.data['outgoings-total'] = parseFloat(total).toFixed(2)
-    
-    if (req.session.data['outgoings-total'] <= 0) {
-        req.session.data['outgoings-total'] = "No details given"
-    } else {
-        req.session.data['outgoings-total'] = "£" + parseFloat(total).toFixed(2)
-    }
-    
-    if (req.session.data['other-expenses-details'] != "") {
-        req.session.data['other-expenses-details'] = 'including: ' + req.session.data['other-expenses-details']
-    }
-
-    res.redirect('/map/check-your-answers')    
-    
-})
-
-
-// *************
-// Your benefits
-router.post('/map/your-benefits', function (req, res) {
-
-  res.redirect('/map/your-monthly-outgoings')    
-    
-})
-
 
 // ******************
 // Check your answers

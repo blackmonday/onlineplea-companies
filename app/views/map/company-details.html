@@ -1,0 +1,141 @@
+{% extends "layout-CPP.html" %}
+
+{% block page_title %}
+  Make a plea
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+    {% include "includes/breadcrumb.html" %}
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            
+            <form class="form" action="" method="post">
+                
+                <h1 class="heading-xlarge">Company details</h1>
+            
+                <h2 class="heading-medium">Check the company name and address</h2>
+
+                <div class="panel panel-border-wide">
+                    <p class="bold bottom_0">{{ data['company-name'] }}</p>
+                    <p class="top_0 bottom_0">{{ data['company-address-line-1'] }}</p>
+                    <p class="top_0 bottom_0">{{ data['company-address-line-2'] }}</p>
+                    <p class="top_0 bottom_0">{{ data['company-address-city'] }}</p>
+                    <p class="top_0 bottom_0">{{ data['company-address-county'] }}</p>
+                    <p class="top_0">{{ data['company-address-postcode'] }}</p>
+                </div>
+
+                <!-- Are these details corret? -->
+                <div class="form-group">
+                    <fieldset class="inline" data-required data-error="You must tell us if the name and address on the notice we sent to you is correct">
+                        <legend class="heading-small">Are these details correct?</legend>
+                        <div class="multiple-choice">
+                            <input id="name-address-1" type="radio" name="name-address-group" value="Yes" {{ checked('name-address-group','Yes') }}>
+                            <label for="name-address-1">Yes</label>
+                        </div>
+                        <div class="multiple-choice" data-target="details-not-correct">
+                            <input id="name-address-2" type="radio" name="name-address-group" value="No" {{ checked('name-address-group','No') }}>
+                            <label for="name-address-2">No</label>
+                        </div>
+                    </fieldset>
+                </div>
+                
+                <!-- Changes to name and address -->
+                <div class="form-group">
+                    <fieldset>
+                        <div class="js-hidden" id="details-not-correct">
+                            <div class="panel panel-border-wide top_15">
+                                <p class="bold">Changes to company name</p>
+
+                                <label class="form-label" for="new-defendant-first-name">Company name</label>
+                                <input class="form-control" id="new-company-name" type="text" name="new-company-name" value="{{ data['new-company-name'] }}">
+                            </div>
+
+                            <div class="panel panel-border-wide top_15">
+                                <p class="bold">Changes to company address</p>
+
+                                <label class="form-label" for="new-company-address-line">Company address</label>
+                                <input class="form-control bottom_5" id="new-company-address-line-1" type="text" name="new-company-address-line-1" value="{{ data['new-company-address-line-1'] }}">
+                                <input class="form-control" id="new-company-address-line-2" type="text" name="new-company-address-line-2" value="{{ data['new-company-address-line-2'] }}">
+
+                                <label class="form-label top_30" for="new-company-address-city">Town or city</label>
+                                <input class="form-control" id="new-company-address-city" type="text" name="new-company-address-city" value="{{ data['new-company-address-city'] }}">
+
+                                <label class="form-label top_15" for="new-company-address-county">County (optional)</label>
+                                <input class="form-control" id="new-company-address-county" type="text" name="new-company-address-county" value="{{ data['new-company-address-county'] }}">
+
+                                <label class="form-label top_15" for="new-company-address-postcode">Postcode</label>
+                                <input class="form-control" id="new-company-address-postcode" type="text" name="new-company-address-postcode" value="{{ data['new-company-address-postcode'] }}">
+
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <h2 class="heading-medium">Enter other details</h2>
+
+                <!-- Name of company representative -->
+                <div class="form-group">
+                    <fieldset data-required data-error="xxx">
+                        <legend>
+                            <label class="bold bottom_5">Name of the person representing the company plea</label>
+                            <p class="form-hint bottom_10">Enter full name</p>
+                        </legend>
+                        <input class="form-control" id="company-representative-name" type="text" name="company-representative-name" value="{{ data['company-representative-name'] }}">
+                    </fieldset>
+                </div>
+                    
+                <!-- Company representative's position in the company -->
+                <div class="form-group top_30">
+                    <fieldset data-required data-error="xxx">
+                        <legend>
+                            <label class="form-label bold bottom_5" for="company-representative-position">Your position within the company</label>
+                            <p class="form-hint bottom_0">In order to submit a plea on behalf of a company, you must be “job title”, "job title" or "job title"</p>
+                        </legend>
+                        <input class="form-control" id="company-representative-position" type="text" name="company-representative-position" value="{{ data['company-representative-position'] }}">
+                    </fieldset>
+                </div>
+
+                <!-- Contact numbers -->
+                <div class="form-group">
+                    <fieldset data-required data-error="xxx">
+                        <p class="bold bottom_5">Contact numbers</p>
+                        <p class="form-hint bottom_10">The court may need to contact you so they can resolve your case quickly</p>
+
+                        <label class="form-label top_10" for="company-telephone">Telephone (optional)</label>
+                        <input class="form-control" id="company-telephone" type="tel" name="company-telephone" value="{{ data['company-telephone'] }}">
+
+                        <label class="form-label top_15" for="company-mobile-number">Mobile number (optional)</label>
+                        <input class="form-control" id="company-mobile-number" type="tel" name="company-mobile-number" value="{{ data['company-mobile-number'] }}">
+                    </fieldset>
+                </div>
+                
+                <div class="form-group top_30">
+                    <fieldset data-required data-error="You must provide an email address">
+                        <label class="form-label bold bottom_5" for="company-email">Email address</label>
+                        <p class="form-hint bottom_5">We will automatically email you confirmation when the plea is submitted</p>
+                        <input class="form-control" id="company-email" type="email" name="company-email" value="{{ data['company-email'] }}">
+                    </fieldset>
+                </div>
+                
+                <div class="form-group">
+                    <p class="top_30"><input class="button" type="submit" value="Continue"></p>
+                    <p>{% include "includes/back_link.html" %}</p>
+                </div>
+                
+            </form>
+
+        </div>
+        
+        <div class="column-third">
+            {% include "includes/map/help-and-advice-header.html" %}
+            {% include "includes/map/help-and-advice-3.html" %}
+        </div>
+        
+    </div>
+</main>
+
+{% endblock %}

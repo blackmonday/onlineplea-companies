@@ -20,7 +20,7 @@
                 <div class="panel panel-border-wide">
                     <p>This is your chance to respond. Please note:</p>
                     <ul class="list list-bullet">
-                        <li>you're being charged with a criminal offence and you may wish to take legal advice before making your plea</li>
+                        <li>the company you represent is being charged with a criminal offence and you may wish to take legal advice before making your plea</li>
                         <li>all evidence is in the notice sent to you</li>
                         <li>if you plead guilty, we will reduce your fine by up to 33%</li>
                     </ul>
@@ -32,11 +32,9 @@
                 <h2 class="heading-large">What you've been charged with</h2>
 
                 <details open>
-                    <summary><span class="summary">{{ data['charge-title'] }}<!--Passenger failing to produce a ticket--></span></summary>
+                    <summary><span class="summary">{{ data['charge-title'] }}</span></summary>
                     <div class="panel panel-border-narrow charge-details">
                         {{ data['charge-detail'] }}
-                        <!--<p>On 17 Feb 2017 At Mill Mead Road N17. Being a passenger on a Public service Vehicle operated on behalf of London Bus Services Limited being used for the carriage of passengers at separate fares where the vehicle was being operated by a Driver without a Conductor did not as directed by the Driver an Inspector or a Notice displayed on the vehicle pay the fare for the journey in accordance with the direction.</p>
-                        <p>Contrary to byelaw 18(1) and 24 of the Railway Byelaws made under Section 219 of the Transport Act 2000 by the Strategic Railway Authority and confirmed under schedule 20 of the Transport Act 2000.</p>-->
                     </div>
                 </details>
 
@@ -53,7 +51,7 @@
                         </div>
                         <div class="js-hidden" id="pleading-guilty">
                             <div class="panel panel-border-wide top_15">
-                                <p>You're declaring you comitted the offence.</p>
+                                <p>You're declaring you or the company you represent comitted the offence.</p>
                             </div>
                         </div>
 
@@ -63,7 +61,7 @@
                         </div>
                         <div class="js-hidden" id="pleading-not-guilty">
                             <div class="panel panel-border-wide top_15">
-                                <p>You're declaring you didn't commit the offence so you'll need to attend court if you want to present your evidence.</p>
+                                <p>You’re declaring that you or the company you represent did not commit the offence, so you will need to attend court if you want to present your evidence.</p>
                             </div>
                         </div>
 

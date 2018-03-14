@@ -28,9 +28,8 @@ $(document).ready(function() {
     $('#character_count_2').html('Character count: 0 /' + text_max);
     $('#character_count_3').html('Character count: 0 /' + text_max);
     $('#character_count_4').html('Character count: 0 /' + text_max);
-    $('#character_count_5').html('Character count: 0 /' + text_max);
-    $('#character_count_6').html('Character count: 0 /' + text_max);
     $('#character_count_7').html('Character count: 0 /' + text_max);
+    $('#character_count_8').html('Character count: 0 /' + text_max);
 
     $('#mitigation').keyup(function() {
         var text_length = $('#mitigation').val().length;
@@ -117,40 +116,6 @@ $(document).ready(function() {
         }
     });
 
-    $('#claiming-benefits-details').keyup(function() {
-        var text_length = $('#claiming-benefits-details').val().length;
-
-        $('#character_count_5').html('Character count: ' + text_length + ' /' + text_max);
-        
-        if (text_length > (text_max-text_spread)) {
-            $('#character_count_5').css('color','#B10E1E');
-        } else {
-            $('#character_count_5').css('color','#6F777B');
-        }
-        if (text_length > (text_max)) {
-            $('#character_count_5').addClass('bold');
-        } else {
-            $('#character_count_5').removeClass('bold');
-        }
-    });
-
-    $('#other-expenses-details').keyup(function() {
-        var text_length = $('#other-expenses-details').val().length;
-
-        $('#character_count_6').html('Character count: ' + text_length + ' /' + text_max);
-        
-        if (text_length > (text_max-text_spread)) {
-            $('#character_count_6').css('color','#B10E1E');
-        } else {
-            $('#character_count_6').css('color','#6F777B');
-        }
-        if (text_length > (text_max)) {
-            $('#character_count_6').addClass('bold');
-        } else {
-            $('#character_count_6').removeClass('bold');
-        }
-    });
-
     $('#feedback-details').keyup(function() {
         var text_length = $('#feedback-details').val().length;
 
@@ -165,6 +130,23 @@ $(document).ready(function() {
             $('#character_count_7').addClass('bold');
         } else {
             $('#character_count_7').removeClass('bold');
+        }
+    });
+
+    $('#other-income-details').keyup(function() {
+        var text_length = $('#other-income-details').val().length;
+
+        $('#character_count_8').html('Character count: ' + text_length + ' /' + text_max);
+        
+        if (text_length > (text_max-text_spread)) {
+            $('#character_count_8').css('color','#B10E1E');
+        } else {
+            $('#character_count_8').css('color','#6F777B');
+        }
+        if (text_length > (text_max)) {
+            $('#character_count_8').addClass('bold');
+        } else {
+            $('#character_count_8').removeClass('bold');
         }
     });
 

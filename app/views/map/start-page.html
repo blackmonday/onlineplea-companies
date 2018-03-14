@@ -19,35 +19,92 @@
                 <li>The person charged with the offence</li>
                 <li>an official representative of the company charged with the offece</li>
             </ul>
-            <h2 class="heading-medium">Before you start</h2>
-            <p>To use this service you need:</p>
             
             
-            <details open>
-                <summary><span class="summary bold">For all pleas</span></summary>
-                <div class="panel panel-border-narrow">
-                    <ul class="list list-bullet">
-                        <li>the Single Justice Procedure notice sent to you</li>
-                        <li>your National Insurance number</li>
-                        <li>details of your income, benefits and outgoings</li>
-                        <li>your employer's details</li>
-                        <li>your email address</li>
-                    </ul>
-                </div>
-            </details>
             
-            <details open>
-                <summary><span class="summary bold">Additional information needed for not guilty pleas</span></summary>
-                <div class="panel panel-border-narrow">
-                    <ul class="list list-bullet">
-                        <li>your witness' name, address, age and date of birth</li>
-                        <li>any dates you can't attend court</li>
-                    </ul>
-                </div>
-            </details>
+            
+            <form>
+                <div class="form-group">
+                    <fieldset class="inline">
+                        <legend>
+                            <h1 class="heading-medium">
+                                Before you start
+                            </h1>
+                            <p>Are you representing yourself or a company?</p>
+                        </legend>
 
-            <a class="button button-start top_30" href="find-your-case.html" role="button">Start now</a>
+                        <div class="multiple-choice" data-target="representing-myself">
+                            <input id="representing-1" type="radio" name="representing-group" value="Myself" {{ checked('representing-group','Myself') }}>
+                            <label for="representing-1">Myself</label>
+                        </div>
+                        <div class="multiple-choice" data-target="representing-a-company">
+                            <input id="representing-2" type="radio" name="representing-group" value="A company" {{ checked('representing-group','A companhy') }}>
+                            <label for="representing-2">A company</label>
+                        </div>
+                    </fieldset>
+
+                        <!-- MYSELF -->
+                        <div class="js-hidden" id="representing-myself">
+                            <p class="top_15">To use this service you need:</p>
+                            <details open>
+                                <summary><span class="summary bold">For all pleas</span></summary>
+                                <div class="panel panel-border-narrow">
+                                    <ul class="list list-bullet">
+                                        <li>the Single Justice Procedure notice sent to you</li>
+                                        <li>your National Insurance number</li>
+                                        <li>details of your income, benefits and outgoings</li>
+                                        <li>your employer's details</li>
+                                        <li>your email address</li>
+                                    </ul>
+                                </div>
+                            </details>
+                            <details open>
+                                <summary class="top_15"><span class="summary bold">Additional information needed for not guilty pleas</span></summary>
+                                <div class="panel panel-border-narrow">
+                                    <ul class="list list-bullet">
+                                        <li>your witness' name, address, age and date of birth</li>
+                                        <li>any dates you can't attend court</li>
+                                    </ul>
+                                </div>
+                            </details>
+                        </div>
+
+                        <!-- A COMPANY -->
+                        <div class="js-hidden" id="representing-a-company">
+                            <p class="top_15">To use this service you need:</p>
+                            <details open>
+                                <summary><span class="summary bold">For all pleas:</span></summary>
+                                <div class="panel panel-border-narrow">
+                                    <ul class="list list-bullet">
+                                        <li>the Single Justice Procedure notice sent to you</li>
+                                        <li>the company you represents financial information</li>
+                                        <li>an email address</li>
+                                    </ul>
+                                </div>
+                            </details>
+                            <details open>
+                                <summary class="top_15"><span class="summary bold">Additional information needed for not guilty pleas</span></summary>
+                                <div class="panel panel-border-narrow">
+                                    <ul class="list list-bullet">
+                                        <li>your witness' name, address, age and date of birth</li>
+                                        <li>any dates you can't attend court</li>
+                                    </ul>
+                                </div>
+                            </details>
+                        </div>
+                        
+                        <a class="button button-start top_30" href="find-your-case.html" role="button">Start now</a>
+                 </div>
+            </form>
+
             
+            
+            
+            
+            
+            
+
+           
             <div class="panel panel-border-narrow top_60">This service is also available in Welsh (<a href="#">Cymraeg)</a></div>
 
         </div>

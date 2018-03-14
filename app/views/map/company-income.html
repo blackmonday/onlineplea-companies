@@ -1,0 +1,69 @@
+{% extends "layout-CPP.html" %}
+
+{% block page_title %}
+  Make a plea
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+    {% include "includes/breadcrumb.html" %}
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <h1 class="heading-xlarge">Company income</h1>
+            
+            <form class="form" action="" method="post">
+                
+                <div class="form-group">
+                    <fieldset data-required data-error="xxx">
+                        <legend class="bold">Annual turnover</legend>
+                        <label class="bold" style="display: none">Annual turnover</label>
+                        <div class="input-icon">
+                            <i>£</i><input class="form-control" id="annual-turnover" type="number" min="0.01" step="0.01" name="annual-turnover" value="{{ data['annual-turnover'] }}">
+                        </div>
+                    </fieldset>
+                </div>
+                    
+                
+                <div class="form-group top_0">
+                    <fieldset data-required data-error="xxx">
+                        <label class="form-label" for="mitigation">
+                            <p class="heading-small">Any other relevant financial information</p>
+                        </label>
+                        <textarea class="form-control form-control-3-4" name="other-income-details" id="other-income-details" rows="10" style="width:100%">{{ data['other-income-details'] }}</textarea>
+                        <div class="font-xsmall form-control-3-4" style="width:100%" id="character_count_8"></div>
+                    </fieldset>
+                </div>
+                
+                
+                
+                
+                
+
+                
+                
+                
+                
+                
+                
+                
+                <div class="form-group">
+                    <p class="top_30"><input class="button" type="submit" value="Continue"></p>
+                    <p>{% include "includes/back_link.html" %}</p>
+                </div>
+                
+            </form>
+
+        </div>
+        
+        <div class="column-third">
+            {% include "includes/map/help-and-advice-header.html" %}
+            {% include "includes/map/help-and-advice-3.html" %}
+        </div>
+        
+    </div>
+</main>
+
+{% endblock %}
