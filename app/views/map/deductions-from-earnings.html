@@ -1,0 +1,67 @@
+{% extends "layout-CPP.html" %}
+
+{% block page_title %}
+  Make a plea
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+    {% include "includes/breadcrumb.html" %}
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            
+            <form class="form" action="" method="post">
+            
+                <h1 class="heading-xlarge">Deductions from earnings</h1>
+
+                <div class="form-group">
+                    <fieldset class="inline" data-required data-error="Tell us if you would like us to deduct it from your earnings">
+
+                        <legend>
+                            <legend class="bold" style="display: none">If you need to pay a penalty, would you like us to deduct it from yoru earnings?</legend>
+                            <label class="bold">If you need to pay a penalty, would you like us to deduct it from yoru earnings?</label>
+                            
+                            <p class="bottom_10">The court may deduct a penalty from your earnings if:</p>
+                            <ul class="list list-bullet">
+                                <li>you've failed to pay in the past</li>
+                                <li>you're ordered to pay compensation, as part of your penalty</li>
+                            </ul>
+
+                            <p class="bottom_0">For guideance on amount of deduction please visit:</p>
+                            <p><a href="http://www.legislation.gov.uk/uksi/2006/501/regulation/5/made" target="_blank">http://www.legislation.gov.uk/uksi/2006/501/regulation/5/made</a></p>
+
+                        </legend>
+
+
+                        <div class="multiple-choice">
+                            <input id="deductions-from-earnings-1" type="radio" name="deductions-from-earnings-group" value="Yes" {{ checked('deductions-from-earnings-group','Yes') }}>
+                            <label for="deductions-from-earnings-1">Yes</label>
+                        </div>
+                        <div class="multiple-choice">
+                            <input id="deductions-from-earnings-2" type="radio" name="deductions-from-earnings-group" value="No" {{ checked('deductions-from-earnings-group','No') }}>
+                            <label for="deductions-from-earnings-2">No</label>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="form-group">
+                    <p class="top_30"><input class="button" type="submit" value="Continue"></p>
+                    <p>{% include "includes/back_link.html" %}</p>
+                </div>
+                
+            </form>
+
+        </div>
+        
+        <div class="column-third">
+            {% include "includes/map/help-and-advice-header.html" %}
+            {% include "includes/map/help-and-advice-3.html" %}
+        </div>
+        
+    </div>
+</main>
+
+{% endblock %}

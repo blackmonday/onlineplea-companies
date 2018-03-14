@@ -1,0 +1,62 @@
+{% extends "layout-CPP.html" %}
+
+{% block page_title %}
+  Make a plea
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+    {% include "includes/breadcrumb.html" %}
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <h1 class="heading-xlarge">Declaration</h1>
+            
+            <p class="bottom_15">I confirm that:</p>
+            <ul class="list list-bullet">
+                <li>I've read and understand the charges against me</li>
+                <li>I'm the person named int eh Single Justice Procedure notices</li>
+                <li>the facts I've given are correct as far as I know</li>
+            </ul>
+
+            
+            <div class="notice">
+                <i class="icon icon-important">
+                    <span class="visually-hidden">Warning</span>
+                </i>
+                <strong class="bold-small top_30 bottom_30">
+                    You may be prosecuted if you make a false statement or deliberately don't declare all relevant facts
+                </strong>
+            </div>
+
+            
+            <form class="form" action="" method="post">
+                
+                <div class="form-group">
+                    <div class="multiple-choice">
+                        <input id="confirm-1" name="confirmation" type="checkbox" value="confirmation">
+                        <label for="confirm-1">I confirm</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <p class="top_30"><input class="button" type="submit" value="Confirm and submit your plea"></p>
+                    <p>{% include "includes/back_link.html" %}</p>
+                </div>
+                
+            </form>
+
+        </div>
+        
+        <div class="column-third">
+            {% include "includes/map/help-and-advice-header.html" %}
+            {% include "includes/map/help-and-advice-2.html" %}
+            {% include "includes/map/help-and-advice-3.html" %}
+        </div>
+        
+    </div>
+</main>
+
+{% endblock %}

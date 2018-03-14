@@ -1,0 +1,93 @@
+{% extends "layout-CPP.html" %}
+
+{% block page_title %}
+  Make a plea
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+    {% include "includes/breadcrumb.html" %}
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            
+            <form class="form" action="" method="post">
+
+                <h1 class="heading-xlarge">Your plea</h1>
+
+                <div class="panel panel-border-wide">
+                    <p>This is your chance to respond. Please note:</p>
+                    <ul class="list list-bullet">
+                        <li>you're being charged with a criminal offence and you may wish to take legal advice before making your plea</li>
+                        <li>all evidence is in the notice sent to you</li>
+                        <li>if you plead guilty, we will reduce your fine by up to 33%</li>
+                    </ul>
+
+                </div>
+
+                <hr class="hr-60">
+
+                <h2 class="heading-large">What you've been charged with</h2>
+
+                <details open>
+                    <summary><span class="summary">{{ data['charge-title'] }}<!--Passenger failing to produce a ticket--></span></summary>
+                    <div class="panel panel-border-narrow charge-details">
+                        {{ data['charge-detail'] }}
+                        <!--<p>On 17 Feb 2017 At Mill Mead Road N17. Being a passenger on a Public service Vehicle operated on behalf of London Bus Services Limited being used for the carriage of passengers at separate fares where the vehicle was being operated by a Driver without a Conductor did not as directed by the Driver an Inspector or a Notice displayed on the vehicle pay the fare for the journey in accordance with the direction.</p>
+                        <p>Contrary to byelaw 18(1) and 24 of the Railway Byelaws made under Section 219 of the Transport Act 2000 by the Strategic Railway Authority and confirmed under schedule 20 of the Transport Act 2000.</p>-->
+                    </div>
+                </details>
+
+                <hr class="hr-60">
+
+                <h2 class="heading-large">Enter your plea</h2>
+
+                <div class="form-group">
+                    <fieldset data-required data-error="You must select a plea for this charge">
+                        <legend class="heading-small">How do you plead?</legend>
+                        <div class="multiple-choice"  data-target="pleading-guilty">
+                            <input id="plea-1" type="radio" name="how-do-you-plead-group" value="Guilty" {{ checked('how-do-you-plead-group','Guilty') }}>
+                            <label for="plea-1">Guilty</label>
+                        </div>
+                        <div class="js-hidden" id="pleading-guilty">
+                            <div class="panel panel-border-wide top_15">
+                                <p>You're declaring you comitted the offence.</p>
+                            </div>
+                        </div>
+
+                        <div class="multiple-choice"  data-target="pleading-not-guilty">
+                            <input id="plea-2" type="radio" name="how-do-you-plead-group" value="Not guilty" {{ checked('how-do-you-plead-group','Not guilty') }}>
+                            <label for="plea-2">Not guilty</label>
+                        </div>
+                        <div class="js-hidden" id="pleading-not-guilty">
+                            <div class="panel panel-border-wide top_15">
+                                <p>You're declaring you didn't commit the offence so you'll need to attend court if you want to present your evidence.</p>
+                            </div>
+                        </div>
+
+                    </fieldset>
+
+                </div>
+
+                <div class="form-group">
+                    <p class="top_30"><input class="button" type="submit" value="Continue"></p>
+                    <p>{% include "includes/back_link.html" %}</p>
+                </div>
+                
+            </form>
+
+        </div>
+        
+        <div class="column-third">
+            {% include "includes/map/help-and-advice-header.html" %}
+            {% include "includes/map/help-and-advice-1.html" %}
+            {% include "includes/map/help-and-advice-2.html" %}
+            {% include "includes/map/help-and-advice-3.html" %}
+        </div>
+        
+    </div>
+</main>
+
+{% endblock %}

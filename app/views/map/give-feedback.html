@@ -1,0 +1,80 @@
+{% extends "layout-CPP.html" %}
+
+{% block page_title %}
+  Make a plea
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <h1 class="heading-xlarge">Give feedback</h1>
+            
+            <form class="form" action="" method="post">
+                <fieldset>
+                    <legend>
+                        <h1 class="heading-medium">Overall, how did you feel about the service you received today?</h1>
+                    </legend>
+                    <div class="multiple-choice">
+                        <input id="feedback-1" type="radio" name="feedback-group" value="Very satisfied">
+                        <label for="feedback-1">Very satisfied</label>
+                    </div>
+
+                    <div class="multiple-choice">
+                        <input id="feedback-2" type="radio" name="feedback-group" value="Satisfied">
+                        <label for="feedback-2">Satisfied</label>
+                    </div>
+
+                    <div class="multiple-choice">
+                        <input id="feedback-3" type="radio" name="feedback-group" value="Neutral">
+                        <label for="feedback-3">Neither satisfied or dissatisfied</label>
+                    </div>
+
+                    <div class="multiple-choice">
+                        <input id="feedback-4" type="radio" name="feedback-group" value="Dissatisfied">
+                        <label for="feedback-4">Dissatisfied</label>
+                    </div>
+
+                    <div class="multiple-choice">
+                        <input id="feedback-5" type="radio" name="feedback-group" value="Very dissatisfied">
+                        <label for="feedback-5">Very dissatisfied</label>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <div>
+                        <label class="form-label top_30 bold" for="feedback-details">
+                            How could we improve this service?
+                        </label>
+                        <textarea class="form-control form-control-3-4" name="feedback-details" id="feedback-details" rows="5"></textarea>
+                        <div class="font-xsmall form-control-3-4" id="character_count_7">xxx</div>
+                    </div>
+                </fieldset>
+            </form>
+
+            
+            <form class="form" action="" method="post">
+                
+                <div class="form-group">
+                </div>
+
+                <div class="form-group">
+                    <p class="top_30"><input class="button" type="submit" value="Continue"></p>
+                    <p>{% include "includes/back_link.html" %}</p>
+                </div>
+                
+            </form>
+
+        </div>
+        
+        <div class="column-third">
+            {% include "includes/map/help-and-advice-header.html" %}
+            {% include "includes/map/help-and-advice-3.html" %}
+        </div>
+        
+    </div>
+</main>
+
+{% endblock %}

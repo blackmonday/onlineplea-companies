@@ -1,0 +1,65 @@
+{% extends "layout-CPP.html" %}
+
+{% block page_title %}
+  Make a plea
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+    {% include "includes/breadcrumb.html" %}
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <h1 class="heading-xlarge">Make a plea for an offence</h1>
+            <p class="lede">Use this service to plead guilty or not guilty online.</p>
+            <p>You must be either:</p>
+            <ul class="list list-bullet">
+                <li>The person charged with the offence</li>
+                <li>an official representative of the company charged with the offece</li>
+            </ul>
+            <h2 class="heading-medium">Before you start</h2>
+            <p>To use this service you need:</p>
+            
+            
+            <details open>
+                <summary><span class="summary bold">For all pleas</span></summary>
+                <div class="panel panel-border-narrow">
+                    <ul class="list list-bullet">
+                        <li>the Single Justice Procedure notice sent to you</li>
+                        <li>your National Insurance number</li>
+                        <li>details of your income, benefits and outgoings</li>
+                        <li>your employer's details</li>
+                        <li>your email address</li>
+                    </ul>
+                </div>
+            </details>
+            
+            <details open>
+                <summary><span class="summary bold">Additional information needed for not guilty pleas</span></summary>
+                <div class="panel panel-border-narrow">
+                    <ul class="list list-bullet">
+                        <li>your witness' name, address, age and date of birth</li>
+                        <li>any dates you can't attend court</li>
+                    </ul>
+                </div>
+            </details>
+
+            <a class="button button-start top_30" href="find-your-case.html" role="button">Start now</a>
+            
+            <div class="panel panel-border-narrow top_60">This service is also available in Welsh (<a href="#">Cymraeg)</a></div>
+
+        </div>
+        
+        <div class="column-third">
+            {% include "includes/map/help-and-advice-header.html" %}
+            {% include "includes/map/help-and-advice-1.html" %}
+            {% include "includes/map/help-and-advice-2.html" %}
+            {% include "includes/map/help-and-advice-3.html" %}
+        </div>
+        
+    </div>
+</main>
+
+{% endblock %}

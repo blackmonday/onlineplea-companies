@@ -1,0 +1,76 @@
+{% extends "layout-CPP.html" %}
+
+{% block page_title %}
+  Make a plea
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+    {% include "includes/breadcrumb.html" %}
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            
+            <form class="form" action="" method="post">
+
+                <h1 class="heading-xlarge">Guilty plea</h1>
+
+                <div class="panel panel-border-wide">
+                    <p>You have the right to attend an open court hearing but don’t have to. The magistrate can also consider your case without you and send you their decision by post.</p>
+                    <p>If you are needed to attend court we will write to you.</p>
+                    <p>Magistrates follow the same guidelines either way.</p>
+                </div>
+
+                <div class="form-group">
+                    <fieldset data-required data-error="Choose an answer">
+                        <legend class="heading-small">Would you like to come to court?</legend>
+                        <div class="multiple-choice">
+                            <input id="court-1" type="radio" name="do-you-want-to-come-to-court-group" value="No" {{ checked('do-you-want-to-come-to-court-group','No') }}>
+                            <label for="court-1">No, I do not want to come to court</label>
+                        </div>
+                        <div class="multiple-choice">
+                            <input id="court-2" type="radio" name="do-you-want-to-come-to-court-group" value="Yes" {{ checked('do-you-want-to-come-to-court-group','Yes') }}>
+                            <label for="court-2">Yes, I want to come to court</label>
+                        </div>
+                    </fieldset>
+                </div>
+                
+                <hr>
+                
+                <div class="form-group">
+                
+                    <label class="form-label" for="mitigation">
+                        <p class="heading-small">Information for magistrates (optional)</p>
+                        <p class="form-hint bottom_5">This is also known as mitigation. You can explain why you committed the offence or tell magistrates relevant personal circumstances. They’ll take what you say into account when deciding on the sentence.</p>
+                    </label>
+                    <textarea class="form-control form-control-3-4" name="mitigation" id="mitigation" rows="10" style="width:100%">{{ data['mitigation'] }}</textarea>
+                    <div class="font-xsmall form-control-3-4" style="width:100%" id="character_count"></div>
+
+                </div>
+
+                <div class="form-group">
+                    <p class="top_30"><input class="button" type="submit" value="Continue"></p>
+                    <p>{% include "includes/back_link.html" %}</p>
+                </div>
+                
+            </form>
+
+            
+            
+            
+
+        </div>
+        
+        <div class="column-third">
+            {% include "includes/map/help-and-advice-header.html" %}
+            {% include "includes/map/help-and-advice-1.html" %}
+            {% include "includes/map/help-and-advice-2.html" %}
+            {% include "includes/map/help-and-advice-3.html" %}
+        </div>
+        
+    </div>
+</main>
+
+{% endblock %}

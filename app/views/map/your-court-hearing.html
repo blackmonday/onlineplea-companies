@@ -1,0 +1,64 @@
+{% extends "layout-CPP.html" %}
+
+{% block page_title %}
+  Make a plea
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+    {% include "includes/breadcrumb.html" %}
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            
+            <form class="form" action="" method="post">
+                            
+            <h1 class="heading-xlarge">Your court hearing</h1>
+
+                <div class="form-group">
+                    <fieldset class="inline" data-required data-error="Choose an answer">
+                        <legend class="heading-small">Do you need an interpreter in court?</legend>
+                        <div class="multiple-choice"  data-target="interpreter-required">
+                            <input id="interpreter-1" type="radio" name="interpreter-group" value="Yes" {{ checked('interpreter-group','Yes') }}>
+                            <label for="interpreter-1">Yes</label>
+                        </div>
+                        
+                        <div class="multiple-choice" data-target="details-not-correct">
+                            <input id="interpreter-2" type="radio" name="interpreter-group" value="No" {{ checked('interpreter-group','No') }}>
+                            <label for="interpreter-2">No</label>
+                        </div>
+                    </fieldset>
+                </div>
+                    
+                <div class="form-group">
+                    <fieldset class="inline">
+                        <div class="js-hidden top_15" id="interpreter-required">
+                            <div class="panel panel-border-wide top_15">
+                                <p class="bottom_5">Which language?</p>
+                                <p class="form-hint bottom_5">You can include sign language</p>
+                                <input class="form-control" id="interpeter-language" type="text" name="interpeter-language"value="{{ data['interpeter-language'] }}">
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="form-group">
+                    <p class="top_30"><input class="button" type="submit" value="Continue"></p>
+                    <p>{% include "includes/back_link.html" %}</p>
+                </div>
+                
+            </form>
+
+        </div>
+        
+        <div class="column-third">
+            {% include "includes/map/help-and-advice-header.html" %}
+            {% include "includes/map/help-and-advice-3.html" %}
+        </div>
+        
+    </div>
+</main>
+
+{% endblock %}

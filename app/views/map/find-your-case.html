@@ -1,0 +1,60 @@
+{% extends "layout-CPP.html" %}
+
+{% block page_title %}
+  Make a plea
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+    {% include "includes/breadcrumb.html" %}
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            
+            <form class="form" method="post">
+
+                <h1 class="heading-xlarge">Find your case</h1>
+                
+                <div class="form-group">
+                    <fieldset data-required data-error="Enter your unique reference number">
+                        <label class="form-label bold" for="URN" style="display: none">Case or unique reference number</label>
+                        <legend class="form-label bold" for="URN">Case or unique reference number</legend>
+                        <input class="form-control" id="URN" type="text" name="URN">
+                        <details>
+                            <summary class="top_5"><span class="summary">Where to find this on your notice</span></summary>
+                            <div class="panel panel-border-narrow">
+                                <img src="/public/images/find-your-case/Where%20to%20find%20-%20large%202x.png" class="img-fix" title="Thsi image shows where you can find your case or unique reference number">
+                            </div>
+                        </details>
+                    </fieldset>
+                </div>
+
+                <div class="form-group">
+                    <fieldset data-required data-error="Enter your postcode">
+                        <label class="form-label bold top_15" for="post-code" style="display: none">Your postcode</label>
+                        <legend class="form-label bold top_15" for="post-code">Your postcode, as shown on your notice</legend>
+                        <input class="form-control" id="post-code" type="text" name="post-code">
+                    </fieldset>
+                </div>
+
+                <div class="form-group">
+                    <p class="top_30"><input class="button" type="submit" value="Continue"></p>
+                    <p>{% include "includes/back_link.html" %}</p>
+                </div>
+                
+            </form>
+
+        </div>
+        
+        <div class="column-third">
+            {% include "includes/map/help-and-advice-header.html" %}
+            {% include "includes/map/help-and-advice-1.html" %}
+            {% include "includes/map/help-and-advice-3.html" %}
+        </div>
+        
+    </div>
+</main>
+
+{% endblock %}

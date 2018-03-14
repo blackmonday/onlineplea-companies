@@ -1,0 +1,169 @@
+{% extends "layout-CPP.html" %}
+
+{% block page_title %}
+  Make a plea
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+    
+    {% include "includes/breadcrumb.html" %}
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            
+            <form class="form" action="" method="post">
+
+                <h1 class="heading-xlarge">Not guilty plea</h1>
+                <p class="">Provide information for magistrates ahead of your court hearing.</p>
+
+                <div class="form-group">
+                    <fieldset class="inline" data-required data-error="Tell us why you believe you are not guilty">
+                        <label class="form-label heading-small bold" for="textarea">Why do you believe you are not guilty?</label>
+                        <textarea class="form-control form-control-3-4" name="not-guilty-mitigation" id="not-guilty-mitigation" rows="10" style="width:100%">{{ data['not-guilty-mitigation'] }}</textarea>
+                        <div class="font-xsmall form-control-3-4" style="width:100%" id="character_count"></div>
+                    </fieldset>
+                </div>
+
+                <div class="form-group">
+                    <fieldset class="inline" data-required data-error="You must tell us if you need an interpreter in court">
+                        <legend class="form-label heading-small bold">Do you need an interpreter in court?</legend>
+                        <div class="multiple-choice"  data-target="interpreter-required">
+                            <input id="interpreter-1" type="radio" name="interpreter-group" value="Yes" {{ checked('interpreter-group','Yes') }}>
+                            <label for="interpreter-1">Yes</label>
+                        </div>
+                        
+                        <div class="multiple-choice" data-target="details-not-correct">
+                            <input id="interpreter-2" type="radio" name="interpreter-group" value="No" {{ checked('interpreter-group','No') }}>
+                            <label for="interpreter-2">No</label>
+                        </div>
+                    </fieldset>
+                </div>
+
+
+                 <div class="form-group">
+                    <fieldset class="inline">
+                        <div class="js-hidden top_15" id="interpreter-required">
+                            <div class="panel panel-border-wide top_15">
+                                <p class="bottom_5">Which language?</p>
+                                <p class="form-hint bottom_5">You can include sign language</p>
+                                <input class="form-control" id="interpeter-language" type="text" name="interpeter-language" value="{{ data['interpeter-language'] }}">
+                            </div>
+                        </div>
+                     </fieldset>
+                </div>
+
+                <p class="heading-medium">Prosecution witnesses</p>
+
+                <div class="form-group">
+                    <fieldset class="inline" data-required data-error="Choose an answer">
+                        <label><legend  class="heading-small">Do you want a witness on this statement to attend?</legend>
+                            <p class="form-hint">Only say yes if there's something you want to ask the witness or there's something you disagree with on their statement</p>
+                        </label>
+                        
+
+                        <div class="multiple-choice"  data-target="witness-1-required">
+                            <input id="prosecution-witness-1" type="radio" name="witness-1-group" value="Yes" {{ checked('witness-1-group','Yes') }}>
+                            <label for="prosecution-witness-1">Yes</label>
+                        </div>
+
+                        <div class="multiple-choice">
+                            <input id="prosecution-witness-2" type="radio" name="witness-1-group" value="No" {{ checked('witness-1-group','No') }}>
+                            <label for="prosecution-witness-2">No</label>
+                        </div>
+                    </fieldset>
+                </div>
+                    
+                <div class="form-group">
+                    <fieldset class="inline">
+                        <div class="js-hidden top_15" id="witness-1-required">
+                            <div class="panel panel-border-wide top_15">
+                                <p class="bottom_5">Enter their name and why you want them to attend</p>
+                                <textarea class="form-control form-control-3-4" name="witness-1-details" id="witness-1-details" rows="5">{{ data['witness-1-details'] }}</textarea>
+                                <div class="font-xsmall form-control-3-4" id="character_count_2"></div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <p class="heading-medium">Your witnesses</p>
+
+                <div class="form-group">
+                    <fieldset class="inline" data-required data-error="You must tell us if you want to call a defence witness">
+                        <legend class="heading-small">Do you want to bring your own witness?</legend>
+                        <p class="form-hint">Someone who can give evidence in ourt supporting your case</p>
+                        
+                        <div class="multiple-choice"  data-target="witness-2-required">
+                            <input id="defence-witness-1" type="radio" name="witness-2-group" value="Yes" {{ checked('witness-2-group','Yes') }}>
+                            <label for="defence-witness-1">Yes</label>
+                        </div>
+
+                        <div class="multiple-choice">
+                            <input id="defence-witness-2" type="radio" name="witness-2-group" value="No" {{ checked('witness-2-group','No') }}>
+                            <label for="defence-witness-2">No</label>
+                        </div>
+                    </fieldset>
+                </div>
+                    
+                <div class="form-group">
+                    <fieldset class="inline">
+                        <div class="js-hidden top_15" id="witness-2-required">
+                            <div class="panel panel-border-wide top_15">
+                                <p class="bottom_5">Enter the name and address of your witness and their age and date of birth if known</p>
+                                <textarea class="form-control form-control-3-4" name="witness-2-details" id="witness-2-details" rows="5">{{ data['witness-2-details'] }}</textarea>
+                                <div class="font-xsmall form-control-3-4" id="character_count_3"></div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <p class="heading-medium">Attending court</p>
+
+                <div class="form-group">
+                    <fieldset class="inline" data-required data-error="You must tell us if there are any dates you or your witness can not attend court">
+                        <legend class="heading-small">Are there any dates you or your witness can not attend court?</legend>
+                        <div class="multiple-choice"  data-target="dates-to-avoice-required">
+                            <input id="dates-to-avoid-1" type="radio" name="dates-to-avoid-group" value="Yes" {{ checked('dates-to-avoid-group','Yes') }}>
+                        <label for="dates-to-avoid-1">Yes</label>
+                        </div>
+
+                        <div class="multiple-choice">
+                            <input id="dates-to-avoid-2" type="radio" name="dates-to-avoid-group" value="No" {{ checked('dates-to-avoid-group','No') }}>
+                            <label for="dates-to-avoid-2">No</label>
+                        </div>
+                    </fieldset>
+                </div>
+                
+                <div class="form-group">
+                    <fieldset class="inline">
+                        <div class="js-hidden top_15" id="dates-to-avoice-required">
+                            <div class="panel panel-border-wide top_15">
+                                <p class="bottom_5">Enter the dates you or your witness can not attend court</p>
+                                <textarea class="form-control form-control-3-4" name="dates-to-avoid-details" id="dates-to-avoid-details" rows="5">{{ data['dates-to-avoid-details'] }}</textarea>
+                                <div class="font-xsmall form-control-3-4" id="character_count_4"></div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+
+                <div class="form-group">
+                    <p class="top_30"><input class="button" type="submit" value="Continue"></p>
+                    <p>{% include "includes/back_link.html" %}</p>
+                </div>
+                
+            </form>
+
+        </div>
+        
+        <div class="column-third">
+            {% include "includes/map/help-and-advice-header.html" %}
+            {% include "includes/map/help-and-advice-2.html" %}
+            {% include "includes/map/help-and-advice-3.html" %}
+        </div>
+        
+    </div>
+</main>
+
+{% endblock %}
