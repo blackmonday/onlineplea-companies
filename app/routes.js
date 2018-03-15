@@ -19,18 +19,19 @@ router.post('/map/find-your-case', function (req, res) {
     if ((URN == "TFL") || (URN == "tfl") || (URN == "TfL")) {
         req.session.data['charge-title'] = "Passenger failing to produce a ticket"
         req.session.data['charge-detail'] = "On 17 Feb 2017 At Mill Mead Road N17. Being a passenger on a Public service Vehicle operated on behalf of London Bus Services Limited being used for the carriage of passengers at separate fares where the vehicle was being operated by a Driver without a Conductor did not as directed by the Driver an Inspector or a Notice displayed on the vehicle pay the fare for the journey in accordance with the direction. Contrary to byelaw 18(1) and 24 of the Railway Byelaws made under Section 219 of the Transport Act 2000 by the Strategic Railway Authority and confirmed under schedule 20 of the Transport Act 2000."
-    } else if (URN == "TVL") {
-        req.session.data['charge-title'] = "TV Licensing charge title"
-        req.session.data['charge-detail'] = "TV Licensing charge detail"
+    } else if ((URN == "TVL") || (URN == "tvl")) {
+        req.session.data['charge-title'] = "Possess/control TV set with intent another use install without a licence"
+        req.session.data['charge-detail'] = "On 01/11/2017 at Chelmsford in the county of Essex were in possession or control of a colour television receiver knowing, or having reasonable grounds for believing, that another person intended to install or use the receiver without a licence"
     } else {
         req.session.data['charge-title'] = "Generic charge title if TFL or TVL not specified as URN"
         req.session.data['charge-detail'] = "Generic charge detail if TFL or TVL not specified as URN"
     }
     
-    req.session.data['company-name'] = "Google"
-    req.session.data['company-address-line-1'] = "38A Baker Street"
-    req.session.data['company-address-city'] = "London"
-    req.session.data['company-address-postcode'] = "W1 7SX"
+    req.session.data['company-name'] = "The Ivory Peg J D Wetherspoon"
+    req.session.data['company-address-line-1'] = "3–7 New London Road"
+    req.session.data['company-address-city'] = "Chelmsford"
+    req.session.data['company-address-county'] = "Essex"
+    req.session.data['company-address-postcode'] = "CM2 0SW"
         
     res.redirect('/map/company-details')
     
