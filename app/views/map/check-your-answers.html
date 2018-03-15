@@ -80,6 +80,11 @@
             document.getElementById("interpreterLanguage").innerText = "No language specified"; 
         }
         
+        var otherIncomeDetails = document.getElementById("otherIncomeDetails").innerText;
+        if (otherIncomeDetails == "") {
+            document.getElementById("otherIncomeDetails").innerText = "No other income details given"; 
+        }
+        
     }
 </script>
 
@@ -349,7 +354,7 @@
                     <dt class="cya-question">
                         Any other relevant financial information
                     </dt>
-                    <dd class="cya-answer">
+                    <dd class="cya-answer" id="otherIncomeDetails">
                         {{ data['other-income-details'] }}
                     </dd>
                 </div>
