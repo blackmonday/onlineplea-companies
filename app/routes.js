@@ -21,7 +21,7 @@ router.post('/map/find-your-case', function (req, res) {
         req.session.data['charge-detail'] = "On 17 Feb 2017 At Mill Mead Road N17. Being a passenger on a Public service Vehicle operated on behalf of London Bus Services Limited being used for the carriage of passengers at separate fares where the vehicle was being operated by a Driver without a Conductor did not as directed by the Driver an Inspector or a Notice displayed on the vehicle pay the fare for the journey in accordance with the direction. Contrary to byelaw 18(1) and 24 of the Railway Byelaws made under Section 219 of the Transport Act 2000 by the Strategic Railway Authority and confirmed under schedule 20 of the Transport Act 2000."
     } else if ((URN == "TVL") || (URN == "tvl")) {
         req.session.data['charge-title'] = "Possess/control TV set with intent another use install without a licence"
-        req.session.data['charge-detail'] = "On 01/11/2017 at Chelmsford in the county of Essex were in possession or control of a colour television receiver knowing, or having reasonable grounds for believing, that another person intended to install or use the receiver without a licence"
+        req.session.data['charge-detail'] = "On 01/11/2017 at Chelmsford in the county of Essex were in possession or control of a colour television receiver knowing, or having reasonable grounds for believing, that another person intended to install or use the receiver without a licence";
     } else {
         req.session.data['charge-title'] = "Generic charge title if TFL or TVL not specified as URN"
         req.session.data['charge-detail'] = "Generic charge detail if TFL or TVL not specified as URN"
@@ -112,7 +112,7 @@ router.post('/map/your-court-hearing', function (req, res) {
   if (plea == "Yes"){
     res.redirect('/map/company-finances')
   } else if (plea == "No"){
-    res.redirect('/map/comapny-finances')
+    res.redirect('/map/company-finances')
   }
     
 })
